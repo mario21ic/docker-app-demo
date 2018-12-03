@@ -1,0 +1,33 @@
+# This section contains your application metadata.
+# Version of the application
+version: 0.1.0
+# Name of the application
+name: hello
+# A short description of the application
+description: 
+# Namespace to use when pushing to a registry. This is typically your Hub username.
+#namespace: myHubUsername
+# List of application maintainers with name and email for each
+maintainers:
+  - name: mario21ic
+    email: 
+
+---
+# This section contains the Compose file that describes your application services.
+version: '3.2'
+
+services:
+
+  hello:
+    image: hashicorp/http-echo:${version}
+    command: ["-text", "${text}"]
+    ports:
+      - ${port}:5678
+
+
+---
+# This section contains the default values for your application settings.
+port: 5678
+text: hello development $USER
+version: latest
+
